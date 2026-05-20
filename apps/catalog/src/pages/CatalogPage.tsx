@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 type Product = {
   id: number;
@@ -19,7 +20,7 @@ export default function CatalogPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch('https://dummyjson.com/products')
+    fetch("https://dummyjson.com/products")
       .then((response) => response.json())
       .then((products: ProductsResponse) => {
         setData(products);
@@ -39,33 +40,42 @@ export default function CatalogPage() {
 
       <div
         style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
           gap: 16,
         }}
       >
         {data?.products.map((product) => (
-          <article
+          <Link
             key={product.id}
+            to={`/products/${product.id}`}
             style={{
-              border: '1px solid #ddd',
-              borderRadius: 8,
-              padding: 16,
+              color: "inherit",
+              textDecoration: "none",
             }}
           >
-            <img
-              src={product.thumbnail}
-              alt={product.title}
+            <article
+              key={product.id}
               style={{
-                width: '100%',
-                height: 120,
-                objectFit: 'cover',
+                border: "1px solid #ddd",
+                borderRadius: 8,
+                padding: 16,
               }}
-            />
+            >
+              <img
+                src={product.thumbnail}
+                alt={product.title}
+                style={{
+                  width: "100%",
+                  height: 120,
+                  objectFit: "cover",
+                }}
+              />
 
-            <h3>{product.title}</h3>
-            <p>${product.price}</p>
-          </article>
+              <h3>{product.title}</h3>
+              <p>${product.price}</p>
+            </article>
+          </Link>
         ))}
       </div>
     </main>
