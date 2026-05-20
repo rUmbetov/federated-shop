@@ -1,0 +1,23 @@
+{
+  "name": "federated-shop",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:host": "npm run dev -w apps/host",
+    "dev:catalog": "npm run dev -w apps/catalog",
+    "dev:product": "npm run dev -w apps/product",
+    "dev:cart": "npm run dev -w apps/cart",
+    "dev:profile": "npm run dev -w apps/profile",
+
+    "build:host": "npm run build -w apps/host",
+    "build:catalog": "npm run build -w apps/catalog",
+    "build:product": "npm run build -w apps/product",
+    "build:cart": "npm run build -w apps/cart",
+    "build:profile": "npm run build -w apps/profile",
+
+    "build": "npm run build --workspaces"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@federated-shop/auth",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "dependencies": {
+    "@federated-shop/types": "1.0.0",
+    "@federated-shop/api": "1.0.0",
+    "zustand": "4.5.0",
+    "react-router-dom": "6.0.0"
+  }
+}
