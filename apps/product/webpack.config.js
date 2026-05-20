@@ -26,27 +26,38 @@ module.exports = {
   },
 
   devServer: {
-    port: 3000,
+    port: 3002,
     historyApiFallback: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
   },
 
   plugins: [
     new ModuleFederationPlugin({
-      name: 'host',
-      remotes: {
-        catalog: 'catalog@http://localhost:3001/remoteEntry.js',
-        product: 'product@http://localhost:3002/remoteEntry.js',
+      name: 'product',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './ProductPage': './src/pages/ProductPage',
       },
       shared: {
         react: {
           singleton: true,
-          requiredVersion: false,
+          requiredVersion: '18.3.1',
         },
         'react-dom': {
           singleton: true,
-          requiredVersion: false,
+          requiredVersion: '18.3.1',
         },
         'react-router-dom': {
+          singleton: true,
+          requiredVersion: '6.26.0',
+        },
+        axios: {
+          singleton: true,
+          requiredVersion: false,
+        },
+        swr: {
           singleton: true,
           requiredVersion: false,
         },
