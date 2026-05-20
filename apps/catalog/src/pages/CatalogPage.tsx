@@ -1,37 +1,15 @@
-import { useEffect, useState } from "react";
+import { useProducts } from "@federated-shop/api";
 import { Link } from "react-router-dom";
 
-type Product = {
-  id: number;
-  title: string;
-  price: number;
-  thumbnail: string;
-};
-
-type ProductsResponse = {
-  products: Product[];
-  total: number;
-  skip: number;
-  limit: number;
-};
-
 export default function CatalogPage() {
-  const [data, setData] = useState<ProductsResponse | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    fetch("https://dummyjson.com/products")
-      .then((response) => response.json())
-      .then((products: ProductsResponse) => {
-        setData(products);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, []);
+  const { data, error, isLoading } = useProducts();
 
   if (isLoading) {
     return <div>Loading products...</div>;
+  }
+
+  if (error) {
+    return <div>Error loading products</div>;
   }
 
   return (

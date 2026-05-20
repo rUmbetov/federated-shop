@@ -55,11 +55,15 @@ module.exports = {
         },
         axios: {
           singleton: true,
-          requiredVersion: false,
+          requiredVersion: '1.16.1',
         },
         swr: {
           singleton: true,
-          requiredVersion: false,
+          requiredVersion: '2.4.1',
+        },
+        '@federated-shop/api': {
+          singleton: true,
+          requiredVersion: '1.0.0',
         },
       },
     }),

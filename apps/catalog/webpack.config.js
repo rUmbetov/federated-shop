@@ -43,25 +43,29 @@ module.exports = {
       shared: {
         react: {
           singleton: true,
-          requiredVersion: false,
+          requiredVersion: '18.3.1',
         },
         'react-dom': {
           singleton: true,
-          requiredVersion: false,
+          requiredVersion: '18.3.1',
         },
         'react-router-dom': {
           singleton: true,
-          requiredVersion: false,
+          requiredVersion: '6.26.0',
         },
         axios: {
           singleton: true,
-          requiredVersion: false,
+          requiredVersion: '1.16.1',
         },
         swr: {
           singleton: true,
-          requiredVersion: false,
+          requiredVersion: '2.4.1',
         },
-      },
+        '@federated-shop/api': {
+          singleton: true,
+          requiredVersion: '1.0.0',
+        },
+      }
     }),
 
     new HtmlWebpackPlugin({

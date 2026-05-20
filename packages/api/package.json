@@ -5,7 +5,7 @@
   "types": "src/index.ts",
   "dependencies": {
     "@federated-shop/types": "1.0.0",
-    "axios": "1.7.0",
-    "swr": "2.2.0"
+    "axios": "1.16.1",
+    "swr": "2.4.1"
   }
 }

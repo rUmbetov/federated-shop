@@ -40,15 +40,19 @@ module.exports = {
       shared: {
         react: {
           singleton: true,
-          requiredVersion: false,
+          requiredVersion: '18.3.1',
         },
         'react-dom': {
           singleton: true,
-          requiredVersion: false,
+          requiredVersion: '18.3.1',
         },
         'react-router-dom': {
           singleton: true,
-          requiredVersion: false,
+          requiredVersion: '6.26.0',
+        },
+        '@federated-shop/api': {
+          singleton: true,
+          requiredVersion: '1.0.0',
         },
       },
     }),
